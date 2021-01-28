@@ -7,47 +7,9 @@
 <body>
  <h1>unkown</h1>
  <p>unkown</p>
-////////////////
-<audio autoplay="autoplay" loop="loop" id="audios">
-    <source src="music/Music.mp3"/>
+<audio autoplay="autopaly" loop="loop" controls="controls" id="audios">
+    <source src="music/Music.mp3" type="audio/mp3" />
 </audio>
-<script>
-    document.addEventListener('touchstart',function(){
-        document.getElementById('audios').play()
-    })
-</script>
-
-<audio autoplay="autoplay" loop="loop" id="audios">
-    <source src="music/Music.mp3" type="audio/mp3"/>
-</audio>
-
-<script>
-document.addEventListener('WeixinJSBridgeReady',function(){
-    document.getElementById('audios').play()
-})
-</script>
-
-<audio src="music/Music.mp3" id="audios" autoplay preload loop="loop"></audio>
-<script>
-    function audioAutoplay(id){
-        var audio = document.getElementById(id),
-        play = function(){
-            audio.play();
-            document.removeEventListener("touchstart",play,false);
-        };
-         audio.play();
-         document.addEventListener("WeixinJSBridgeReady",function(){
-             play();   
-        },false);
-         document.addEventListener("YixinJSBridgeReady",function(){
-             play();
-        },false);
-         document.addEventListener("YixinJSBridgeReady",play,false);
-    }
-
-    audioAutoplay('audios');
-</script>
-//////////////////////////////////////////////
 </body>
 
 <h1>unkown</h1>
