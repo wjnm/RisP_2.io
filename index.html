@@ -3,35 +3,118 @@
 <head>
 <meta charset="utf-8">
 <title>测试</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<style>
+
+</style>
+<script language="JavaScript" type="text/JavaScript">
+ var title;  // 用于临时存放原来的title内容
+    window.onblur = function(){
+      // onblur时先存下原来的title,再更改title内容
+      title = document.title;
+      document.title = "（╯‵□′）╯︵┴─┴ 快回来！";
+    };
+    window.onfocus = function () {
+      // onfocus时原来的title不为空才替换回去
+      // 防止页面还没加载完成且onblur时title=undefined的情况
+      if(title) { 
+        document.title = "(*´∇｀*) 欢迎回来！";
+        setTimeout(function () {
+            document.title = title;
+        }, 1000);
+
+      }
+    }
+    document.oncontextmenu=new Function('event.returnValue=false;');
+    document.onselectstart=new Function('event.returnValue=true;');
+    function click(e) {
+    if (document.all) {
+    if (event.button==2||event.button==3) { alert("欢迎光临寒舍！！！");
+    oncontextmenu='return false';
+    }
+    }
+    if (document.layers) {
+    if (e.which == 3) {
+    oncontextmenu='return false';
+    }RISP_2
+    }
+    } 
+    if (document.layers) {
+    document.captureEvents(Event.MOUSEDOWN); 
+    }
+    document.onmousedown=click;
+    document.oncontextmenu = new Function("return false;")
+    document.onkeydown =document.onkeyup = document.onkeypress=function(){ 
+    if(window.event.keyCode == 12) { 
+    window.event.returnValue=false;
+    return(false);  
+    }    
+    }
+    </script>
+      <script>//禁止F12
+    function jce(){
+    window.close(); //关闭当前窗口(防抽)
+    window.location="about:blank"; //将当前窗口跳转置空白页
+    }
+    function click(e) {
+    if (document.all) {
+      if (event.button==2||event.button==3) { 
+    alert("欢迎光临寒舍！！！");
+    oncontextmenu='return false';
+    }
+    }
+    if (document.layers) {
+    if (e.which == 3) {
+    oncontextmenu='return false';
+    }
+    }
+    }
+    if (document.layers) {
+    jce();
+    document.captureEvents(Event.MOUSEDOWN);
+    }
+    document.onmousedown=click;
+    document.oncontextmenu = new Function("return false;")
+    document.onkeydown =document.onkeyup = document.onkeypress=function(){ 
+    if(window.event.keyCode == 123) { 
+    jce();
+    window.event.returnValue=false;
+    return(false); 
+    } 
+    }
+    </script>
 </head>
 <body>
- <h1>unkown</h1>
- <p>unkown</p>
+    
+<div id="myimg">
+    <img width="600"  style="width:100%;overflow:hidden;" src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp" />
+    <span style="position: absolute; top: 0; left: 0;">RISP_2官网_TEST</span>
+    </div> 
 
- 
-<h1>unkown</h1>
-<h2>unkown</h2>
-<h3>unkown</h3>
-<h4>unkown</h4>
-<h5>unkown</h5>
-<h6>unkown</h6>
-<img loading="lazy" src="https://thumbnail0.baidupcs.com/thumbnail/c2fb2668cj5f2f2b95e55477cda4bdf4?fid=2529171581-250528-109883585908392&time=1613394000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-AJm1nRUKJtB7xgAsyqFQd0HR2cQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=1064335856970858378&dp-callid=0&file_type=0&size=c710_u400&quality=100&vuk=-&ft=video"  width="289" height="295"/>
-<img loading="lazy" src="images/logo.png" width="88" height="88" />
-<a href="http://pan.baidu.com">链接</a>
+<h1 align="center">unkown</h1>
+<h2 align="center">unkown</h2>
+<h3 align="center">unkown</h3>
+<h4 align="center">unkown</h4>
+<h5 align="center">unkown</h5>
+<h6 align="center">unkown</h6>
+<div>
+    <img class="aligncenter" loading="lazy" src="images/logo.png" width="88" height="88" />
+</div>
+
+<a href="http://pan.baidu.com">跳转</a>
 <hr></hr>
-<img loading="lazy" src="images/logo2.png" width="540" height="258" />
-<a href="http://www.baidu.com">链接</a>
+<div>
+    <img class="aligncenter" loading="lazy" src="images/logo2.png" width="540" height="258" />
+</div>
+<a href="http://www.baidu.com">跳转</a>
 <hr></hr>
-<div style="opacity:0.5;position:absolute;left:50px;width:300px;height:150px;background-color:#40B3DF"></div>
-<div style="opacity:0.3;position:absolute;left:120px;width:100px;height:200px;background-color:#8AC007"></div>
+
+<div style="font-size:12px"></div>
+<img class="aligncenter" loading="lazy" src="https://thumbnail0.baidupcs.com/thumbnail/c2fb2668cj5f2f2b95e55477cda4bdf4?fid=2529171581-250528-109883585908392&time=1613394000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-AJm1nRUKJtB7xgAsyqFQd0HR2cQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=1064335856970858378&dp-callid=0&file_type=0&size=c710_u400&quality=100&vuk=-&ft=video"  width="289" height="295"/>
 <img loading="lazy" src="images/1.png" width="0" height="0" />
-<iframe src = "https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3" allow = "autoplay" hidden >
+<!--iframe src = "https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3" allow = "autoplay" hidden -->
 
 </body>
 
 </html>
  
-
-
-
-
