@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.u-audio {
+		width: 32px;
+		position: absolute;
+		top: 15px;
+		left: 15px;
+		z-index: 9999;
+	}
+ 
+	.u-audio .btn_audio {
+		-webkit-animation: rotate 1.5s linear infinite;
+		width: 40px;
+		height: 45px;
+		text-align: center;
+		background: url("img/audio_open.png") red center center no-repeat;
+		background-size: 32px;
+		color: #fff;
+	}
+ 
+	.u-audio .btn_audio.closed {
+		-webkit-animation: none;
+		width: 32px;
+		height: 32px;
+		text-align: center;
+		background: url("img/audio_close.png") center center no-repeat;
+		background-size: 32px;
+	}
+</style>
+</head>
+<body>
+	<section class="u-audio ">
+		<div class="btn_audio">假的暂停</div>
+	</section>
+	<input type="hidden" id="phoneTxt" value="false" />
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+		var isPlayMuisc = true;
+		function play(context, decodeBuffer) {
+			isPlayMuisc = true;
+	        // 调用resume恢复播放
+	        context.resume();
+	        let source = context.createBufferSource();
+	        source.buffer = decodeBuffer;
+	        source.connect(context.destination);
+	        source.start(0);
+	    }
+ 
+	    async function playAudio(context, url) {
+	    	let audioMedia = await request('https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3');
+	    	context.decodeAudioData(audioMedia, decode => play(context, decode));
+	    }
+ 
+	    audioInfo = new Audio;
+	    let context = new (window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext)();
+	    // 如果能够自动播放
+	    if (audioInfo.autoplay) {
+	    	playAudio(url);
+	    }
+ 
+ 
+	    playAudio(context, 'https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3');
+ 
+	    function request(url) {
+	    	return new Promise(resolve => {
+	    		let xhr = new XMLHttpRequest();
+	    		xhr.open('GET', url);
+	            // 这里需要设置xhr response的格式为arraybuffer
+	            // 否则默认是二进制的文本格式
+	            xhr.responseType = 'arraybuffer';
+	            xhr.onreadystatechange = function () {
+	                // 请求完成，并且成功
+	                if (xhr.readyState === 4 && xhr.status === 200) {
+	                	resolve(xhr.response);
+	                }
+	            };
+	            xhr.send();
+	        });
+	    }
+	    document.addEventListener("WeixinJSBridgeReady", function () {
+	    	context.resume();
+	    }, false);
+ 
+	    var browser = {
+	    	versions: function () {
+	    		var u = window.navigator.userAgent;
+	    		return {
+	                trident: u.indexOf('Trident') > -1, //IE内核
+	                presto: u.indexOf('Presto') > -1, //opera内核
+	                webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+	                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+	                mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+	                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+	                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+	                iPad: u.indexOf('iPad') > -1, //是否为iPad
+	                webApp: u.indexOf('Safari') == -1,//是否为web应用程序，没有头部与底部
+	                weixin: u.indexOf('MicroMessenger') > -1 //是否为微信浏览器
+	            };
+	        }()
+	    }
+	    window.onload = function () {
+	    	$(".btn_audio").on("click", function () {
+	    		if ((browser.versions.android || browser.versions.iPhone) && !browser.versions.weixin) {
+	    			if ($('#phoneTxt').val() == "false") {
+	    				isPlayMuisc = false;
+	    				$('#phoneTxt').val("true");
+	    			}
+	    			else {
+	    				isPlayMuisc = true;
+	    				$('#phoneTxt').val("false");
+	    			}
+	    		}
+	    		if (isPlayMuisc) {
+	    			isPlayMuisc = false;
+	    			context.suspend();
+	    			$(".u-audio").css({ "-webkit-transform": "rotate(0deg)" });
+	    			$(".btn_audio").addClass("closed");
+ 
+	    		} else {
+	    			isPlayMuisc = true;
+	    			$(".btn_audio").removeClass("closed");
+	    			context.resume();
+	    		}
+	    	});
+	    }
+	</script>
+</body>
+</html>
+ 
