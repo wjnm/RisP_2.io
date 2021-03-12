@@ -1,10 +1,12 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta charset="utf-8">
-<title>测试</title>
+<meta charset="utf-8" content="text/html；"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="referrer" content="origin">
+<title>建设中</title>
 <link rel="stylesheet" type="text/css" href="index.css" />
-<style>
+<style  type = "text/css">
 
 </style>
 <script language="JavaScript" type="text/JavaScript">
@@ -15,14 +17,11 @@
       document.title = "（╯‵□′）╯︵┴─┴ 快回来！";
     };
     window.onfocus = function () {
-      // onfocus时原来的title不为空才替换回去
-      // 防止页面还没加载完成且onblur时title=undefined的情况
       if(title) { 
         document.title = "(*´∇｀*) 欢迎回来！";
         setTimeout(function () {
             document.title = title;
-        }, 1000);
-
+        }, 800);
       }
     }
     document.oncontextmenu=new Function('event.returnValue=false;');
@@ -84,19 +83,57 @@
     }
     </script>
 </head>
-<body>
-    
-<div id="myimg">
-    <img width="600"  style="width:100%;overflow:hidden;" src="https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp" />
-    <span style="position: absolute; top: 0; left: 0;">RISP_2官网_TEST</span>
-    </div> 
 
-<h1 align="center">unkown</h1>
-<h2 align="center">unkown</h2>
-<h3 align="center">unkown</h3>
-<h4 align="center">unkown</h4>
-<h5 align="center">unkown</h5>
-<h6 align="center">unkown</h6>
+<body>
+  <!--div class="head">
+  <div class="my_menu" id="my_menu">
+     <ul id="my_menu_z">
+       <li><a>12</a></li>
+       <li><a>314</a></li>
+       
+     </ul>
+  </div-->
+
+    <div class="myimg_1"  >
+      <h1 align="center">RDS 官网</h1>
+      <div style='display: block;'>
+        <div class="userbox">
+          <span class="time">
+          <script language="javascript" >
+            var myDate = new Date();
+            var i = myDate.getHours();
+            if(i >=0 && i < 3)
+            document.write("深夜好");
+            else if(i >=3 && i < 6)
+            document.write("凌晨好");
+            else if(i >=6 && i < 8)
+            document.write("早上好");
+            else if(i >=8 && i < 11)
+            document.write("上午好");
+            else if(i >=11 && i < 13)
+            document.write("中午好");
+            else if(i >= 13 && i < 17)
+            document.write("下午好");
+            else if(i >= 17 && i < 19)
+            document.write("傍晚好");
+            else if(i >= 19 && i <= 23)
+            document.write("晚上好");
+        </script>
+        </span>
+  <canvas id="p_img" style=" height: 50vh; border:1px solid #c3c3c3; background:url(https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp) center"></canvas>
+</div>
+
+</div> 
+<div class="myimg_2">
+
+ </div>
+
+<h1 align="center">test</h1>
+<h2 align="center">test</h2>
+<h3 align="center">test</h3>
+<h4 align="center">test</h4>
+<h5 align="center">test</h5>
+<h6 align="center">test</h6>
 <div>
     <img class="aligncenter" loading="lazy" src="images/logo.png" width="88" height="88" />
 </div>
@@ -112,9 +149,13 @@
 <div style="font-size:12px"></div>
 <img class="aligncenter" loading="lazy" src="https://thumbnail0.baidupcs.com/thumbnail/c2fb2668cj5f2f2b95e55477cda4bdf4?fid=2529171581-250528-109883585908392&time=1613394000&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-AJm1nRUKJtB7xgAsyqFQd0HR2cQ%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=1064335856970858378&dp-callid=0&file_type=0&size=c710_u400&quality=100&vuk=-&ft=video"  width="289" height="295"/>
 <img loading="lazy" src="images/1.png" width="0" height="0" />
-<iframe src = "https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3" allow = "autoplay" hidden>
+
 
 </body>
-
+<div  id="bt_div" style="background: rgb(37, 37, 37); opacity: 1;">
+  <footer class="container_footer" align="center">"   "</footer>
+  <footer class="container_footer" align="center">© 2020-2021 wjn_nm 版权所有</footer>
+  <iframe src = "https://mp3.itingwa.com/2013-12/30/20131230075818-MzI2NDgy.mp3" allow = "autoplay" hidden ></iframe>
+</div>
 </html>
  
